@@ -45,7 +45,7 @@
 
         <div class="subforum-title">
 
-            <h1>Pfizer-BioNTech</h1>
+            <h1>Vaccine</h1>
 
 
         </div>
@@ -63,8 +63,8 @@
         } 
 
 
-            $sql = "SELECT title,body,created_at,views,vac_users.name FROM posts INNER JOIN vac_users 
-            ON posts.vac_user_id=vac_users.vac_id";
+            $sql = "SELECT title,body,created_at,views,vac_users.name,type FROM posts INNER JOIN vac_users 
+            ON posts.vac_user_id=vac_users.vac_id  WHERE type = 'Vaccine'";
 
             $result = $conn->query($sql);
            
@@ -111,10 +111,34 @@
 
         <div class="subforum-title">
 
-            <h1>Moderna</h1>
+            <h1>Covid</h1>
 
 
         </div>
+        <?php 
+        
+        $host = "localhost";
+        $dbUsername = "root";
+        $dbPassword = "";
+        $dbName = "covadvisor";
+
+        $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
+
+        if ($conn->connect_error) {
+            die('Could not connect to the database.');
+        } 
+
+
+            $sql = "SELECT title,body,created_at,views,vac_users.name,type FROM posts INNER JOIN vac_users 
+            ON posts.vac_user_id=vac_users.vac_id  WHERE type = 'Covid'";
+
+            $result = $conn->query($sql);
+           
+            if (mysqli_num_rows($result) > 0):
+                while ($row = $result->fetch_assoc()): ?>
+
+   
+
 
         <div class="subforum-row">
 
@@ -124,79 +148,30 @@
 
             <div class="subforum-description subforum-column">
 
-                <h1><a href="">Description Title:</a></h1>
-                <p>Edw grapse oti foustareis na frapseis gia thn selida</p>
+                <h1><a href=""><?php echo $row["title"];?></a></h1>
+                <p><?php echo $row["body"];?></p>
             </div>
 
             <div class="subforum-stats subforum-column center">
 
-                <span>24 Posts | 15 Topics</span>
+                <span><?php echo $row["views"];?> Views</span>
 
             </div>
 
             <div class="subforum-info subforum-column">
 
-                <b><a href="">Last Post</a></b> by <a href="">JustAUser</a>
+                <b><a href="">Last Post</a></b> by <a href=""><?php echo $row["name"];?></a>
 
                 <br>
-                on <small>07/06/2021</small>
+                on <small><?php echo $row["created_at"];?></small>
 
             </div>
         </div>
-        <div class="subforum-row">
 
-            <div class="subforum-icon subforum-column center">
-                <i class="fa fa-viruses"></i>
-            </div>
-
-            <div class="subforum-description subforum-column">
-
-                <h1><a href="">Description Title:</a></h1>
-                <p>Edw grapse oti foustareis na frapseis gia thn selida</p>
-            </div>
-
-            <div class="subforum-stats subforum-column center">
-
-                <span>24 Posts | 15 Topics</span>
-
-            </div>
-
-            <div class="subforum-info subforum-column">
-
-                <b><a href="">Last Post</a></b> by <a href="">JustAUser</a>
-
-                <br>
-                on <small>07/06/2021</small>
-
-            </div>
-        </div>
-        <div class="subforum-row">
-
-            <div class="subforum-icon subforum-column center">
-                <i class="fa fa-viruses"></i>
-            </div>
-
-            <div class="subforum-description subforum-column">
-
-                <h1><a href="">Description Title:</a></h1>
-                <p>Edw grapse oti foustareis na frapseis gia thn selida</p>
-            </div>
-
-            <div class="subforum-stats subforum-column center">
-
-                <span>24 Posts | 15 Topics</span>
-
-            </div>
-
-            <div class="subforum-info subforum-column">
-
-                <b><a href="">Last Post</a></b> by <a href="">JustAUser</a>
-
-                <br>
-                on <small>07/06/2021</small>
-
-            </div>
-        </div>
+        <?php endwhile ?>
+     <?php endif ?>
+     
+    </div>
 
         <div class="subforum">
 
