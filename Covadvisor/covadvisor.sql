@@ -45,7 +45,7 @@ CREATE TABLE qr (
 );
 
 
-INSERT INTO vac_users (vac_id, name, lastname, username, email, password, vac_password, birthday) VALUES
+INSERT INTO vac_users (id, name, lastname, username, email, password, vac_password, birthday) VALUES
 (NULL, 'asdv', 'sdv', 'asdv', 'juniormarg99@gmail.com', '12', '23', NULL),
 (NULL, 'Aggelos', 'Margkas', 'roulismar', 'juniormarg99@gmail.com', '1212', '0', '0000-00-00'),
 (NULL, '12', 'Marg', '43244teg', 'juniormarg99@gmail.com', '0', '3', '0000-00-00'),
