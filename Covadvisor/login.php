@@ -42,7 +42,7 @@ if (isset($_POST['login'])) {
                 echo "User not found";
               } else {
                   //echo "Welcome";
-                  header("Location: http://localhost/Covadvisor/homepage.php");
+                  header("Location: http://localhost/Covadvisor/reg_homepage.php");
                   die();
               }
 
