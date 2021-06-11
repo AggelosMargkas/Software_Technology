@@ -63,7 +63,7 @@
 
 
             $sql = "SELECT title,body,created_at,views,vac_users.name,type FROM posts INNER JOIN vac_users 
-            ON posts.vac_user_id=vac_users.vac_id  WHERE type = 'Vaccine'";
+            ON posts.vac_user_id=vac_users.vac_id  WHERE type = 'Vaccine' ORDER BY created_at ASC";
 
             $result = $conn->query($sql);
            
@@ -129,7 +129,7 @@
 
 
             $sql = "SELECT title,body,created_at,views,vac_users.name,type FROM posts INNER JOIN vac_users 
-            ON posts.vac_user_id=vac_users.vac_id  WHERE type = 'Covid'";
+            ON posts.vac_user_id=vac_users.vac_id  WHERE type = 'Covid' ORDER BY created_at ASC";
 
             $result = $conn->query($sql);
            

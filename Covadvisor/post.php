@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 if (isset($_POST['registration'])) {
 
@@ -8,7 +8,6 @@ if (isset($_POST['registration'])) {
         isset($_POST['radio']) && isset($_POST['body'])    
     ) {
         
-        $Vac_user_id = 1;
         $Title  =  $_POST['title'];
         $Slug  = $_POST['slug'];
         $Views = 0;
@@ -31,7 +30,7 @@ if (isset($_POST['registration'])) {
                 $Insert = "INSERT INTO posts(vac_user_id, title, slug, views, type, body, published) VALUES(?, ?, ?, ?, ?, ?, ?)";
              
                     $stmt = $conn->prepare($Insert);
-                    $stmt->bind_param("ississi", $Vac_user_id, $Title,  $Slug, $Views, $Radio, $Body, $Published);
+                    $stmt->bind_param("ississi", $_SESSION['userid'], $Title,  $Slug, $Views, $Radio, $Body, $Published);
 
                     if ($stmt->execute()) {
                         //echo "New record inserted sucessfully.";

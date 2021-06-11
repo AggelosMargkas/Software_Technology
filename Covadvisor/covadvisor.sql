@@ -45,11 +45,18 @@ CREATE TABLE qr (
 );
 
 
-INSERT INTO vac_users (id, name, lastname, username, email, password, vac_password, birthday) VALUES
-(NULL, 'asdv', 'sdv', 'asdv', 'juniormarg99@gmail.com', '12', '23', NULL),
-(NULL, 'Aggelos', 'Margkas', 'roulismar', 'juniormarg99@gmail.com', '1212', '0', '0000-00-00'),
-(NULL, '12', 'Marg', '43244teg', 'juniormarg99@gmail.com', '0', '3', '0000-00-00'),
-(NULL, 'giannos', 'chara', 'john', 'captain@gmail.com', '33', '233', '2021-06-24');
+INSERT INTO vac_users (vac_id, name, lastname, username, email, password, vac_password, birthday) VALUES
+(NULL, 'aggelos', 'margkas', 'roulismar', 'juniormarg99@gmail.com', '1212', '1234', '2000-06-05'),
+(NULL, 'maria', 'kara', 'maria1', 'maria@gmail.com', '21', '3', '1990-11-12'),
+(NULL, 'giannos', 'chara', 'john', 'captain@gmail.com', '33', '233', '2001-01-24');
 
 INSERT INTO users (id, nameOfUser, surnameOfUser, usernameOfUser, emailOfUser, passwordOfUser, dateOfBirth) VALUES
-(NULL, 'agg', 'mar', 'aggmar', 'juniormarg99@gmail.com', '0', '2021-07-01');
+(NULL, 'dimitris', 'pits', 'pitsi', 'pits@gmail.com', '4321', '1999-07-01');
+
+INSERT INTO posts (id, vac_user_id, title, slug, views, type, body, published, created_at) VALUES
+(NULL, 1, '3h mera', '3h-mera', 2, 'Vaccine', 'Den exw kapoio provlima to emvolio fainetai na einai kalo', 1, '2021-06-05 18:02:23'),
+(NULL, 2, '1h mera', '2h-mera', 13, 'Vaccine', 'Niwthw kapws arrwsth apo to emvolio exw symptvmata covid', 1, '2021-06-12 11:20:09'),
+(NULL, 2, 'Embolio kai covid', 'embolio-kai-covid', 33, 'Covid', 'Exw pyreto akoma alla niwthw kalytera', 1, '2021-06-14 15:12:43'),
+(NULL, 1, 'Deyterh dwsh', 'deyterh-dwsh', 30, 'Vaccine', 'Ekana kai th deuterh dwsh tou emboliou kai paramenw ygihs sas protinw na to kanete kai eseis', 1, '2021-07-12 12:45:15'),
+(NULL, 3, '1h mera me covid', '1h-mera-me-covid', 25, 'Covid', 'Exw arxisei na anebazw pyreto kai exw agxothei me ola auta pou akouw', 1, '2021-06-21 18:13:09'),
+(NULL, 3, 'Enhmerwsh gia thn katastash mou', '1h-mera', 41, 'Covid', 'Arxisa na niwthw kalutera adika anxwnomoun', 1, '2021-06-24 10:15:11');

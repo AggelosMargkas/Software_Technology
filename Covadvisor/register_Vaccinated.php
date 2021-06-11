@@ -4,10 +4,10 @@
 if (isset($_POST['registration'])) {
 
     if (
-        isset($_POST['name']) && isset($_POST['surname']) &&
-        isset($_POST['username']) && isset($_POST['email']) &&
-        isset($_POST['password1']) && isset($_POST['password2']) &&
-        isset($_POST['vaccine']) && isset($_POST['date'])
+        $_POST['name']!=NULL && $_POST['surname']!=NULL  &&
+        $_POST['username']!=NULL  && $_POST['email']!=NULL  &&
+        $_POST['password1']!=NULL  && $_POST['password2']!=NULL  &&
+        $_POST['vaccine']!=NULL  && $_POST['date']!=NULL  
     ) {
 
         $Name  =  $_POST['name'];

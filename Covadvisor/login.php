@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 
 if (isset($_POST['login'])) {
 
     if (
-        isset($_POST['username'])  &&  isset($_POST['password']) && isset($_POST['radio']) && 
+       $_POST['username']!=NULL  &&  $_POST['password']!=NULL && isset($_POST['radio']) && 
         $_POST['radio'] == 'reg'
     ) {
 
@@ -72,12 +72,12 @@ if (isset($_POST['login'])) {
                 die('Could not connect to the database.');
             } else {
 
-              $Select = "SELECT username, password FROM vac_users WHERE username = ? AND password = ? LIMIT 1";
+              $Select = "SELECT vac_id, username, password FROM vac_users WHERE username = ? AND password = ? LIMIT 1";
 
               $stmt = $conn->prepare($Select);
               $stmt->bind_param("ss", $Username, $Password);
               $stmt->execute();
-              $stmt->bind_result($resultUsername,$resultPassword);
+              $stmt->bind_result($Vac_id,$resultUsername,$resultPassword);
               $stmt->store_result();
               $stmt->fetch();
 
@@ -86,6 +86,7 @@ if (isset($_POST['login'])) {
                                 
                 echo "User not found";
               } else {
+                $_SESSION['userid']=$Vac_id;
                   //echo "Welcome";
                   header("Location: http://localhost/Covadvisor/homepage.php");
                   die();
